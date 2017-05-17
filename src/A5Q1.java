@@ -45,7 +45,7 @@ public class A5Q1 {
         int length = word.length();
         // using the integer to display correct amount of underscores
         String underscore = "_";
-        for (int a = 1; a < length; a++) {
+        for (int a = 0; a < length; a++) {
             underscore = underscore + " _";
 
 
@@ -56,8 +56,8 @@ public class A5Q1 {
 
 
         // gives the player 5 guesses
+        int lives = 6;
         int correct = length;
-        int lives = 5;
 
         // loop while they have guesses 
         while (correct > 0 && lives > 0) {
@@ -88,16 +88,32 @@ public class A5Q1 {
 
 
 
+                    String firstHalf2 = word.substring(0, letter1Position);
+
+                    String backHalf2 = word.substring(letter1Position + 1, length);
+
+                    word = firstHalf2 + "*" + backHalf2;
+
+                    letter1Position = word.indexOf(letter1, letter1Position + 1);
+
+
+                    correct = correct - 1;
+
                 }
+
+                System.out.println("You guessed a letter correctly! Woop woop");
+
+                underscore = underscore.toUpperCase();
+
+                System.out.println(underscore);
+
+
+
+
+
+
+
             }
-
-
-
-
-
-
-
-
         }
 
 
@@ -107,8 +123,6 @@ public class A5Q1 {
 
 
 
-
-
-
-    }
+    
+}
 }
